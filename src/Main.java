@@ -3,13 +3,15 @@ import Entitet.Bog;
 import Entitet.TerminalIO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-        //Bog bog = new Bog("lille ole i Skoven", "ole hansen", 2014);
-        //Facade.opretBog(bog);
+        List<Bog> bogList = new LinkedList<>();
 
         while(true) {
 
@@ -19,12 +21,20 @@ public class Main {
                     Bog bog = new Bog(TerminalIO.getString("Angiv titel"),TerminalIO.getString("Angiv forfatter"), TerminalIO.getInt("angiv udgivelsesår"));
                     System.out.println("Du har nu oprettet bogen : " + Facade.opretBog(bog).toString());
                     break;
+
+                case "hent bøger":
+                    bogList = Facade.hentBøer();
+                    udskriv(bogList);
             }
         }
-        //Bibliotek.menu();
+
 
     }
-
+    public static void udskriv(List<Bog> list){
+        for (Bog bog : list) {
+            System.out.println(bog.toString());
+        }
+    }
 
 }
 

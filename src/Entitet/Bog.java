@@ -56,10 +56,8 @@ public class Bog {
 
     @Override
     public String toString() {
-        return "Bog{" +
-                "bogid=" + bogid +
-                ", title='" + title + '\'' +
-                ", forfatter='" + forfatter + '\'' +
-                '}';
+        return "bogid : " + bogid +
+                " - title : " + title + '\'' +
+                " - forfatter : " + forfatter + '\'';
     }
 }

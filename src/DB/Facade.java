@@ -3,6 +3,7 @@ package DB;
 import Entitet.Bog;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Facade {
 
@@ -14,4 +15,8 @@ public class Facade {
     }
 
 
+    public static List<Bog> hentBøer() throws SQLException{
+
+        return BogMapper.hentBøer();
+    }
 }
