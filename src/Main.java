@@ -25,6 +25,11 @@ public class Main {
                 case "hent bøger":
                     bogList = Facade.hentBøer();
                     udskriv(bogList);
+                    break;
+
+                case "slet bog":
+                    System.out.println(Facade.sletBog(TerminalIO.getInt("Skriv bogid")));
+
             }
         }
 

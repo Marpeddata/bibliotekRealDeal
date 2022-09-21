@@ -3,12 +3,11 @@ package DB;
 import Entitet.Bog;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class BogMapper {
-    public static Bog opretBog(Bog bog) throws SQLException {
+    protected static Bog opretBog(Bog bog) throws SQLException {
 
         String sql = "INSERT INTO bogtabel (Forfatter , Title, udgivelsesår ) VALUES (?, ?, ?)";
 
@@ -40,7 +39,7 @@ public class BogMapper {
 
     }
 
-    public static List<Bog> hentBøer() throws SQLException {
+    protected static List<Bog> hentBøer() throws SQLException {
 
         List<Bog> bogList = new LinkedList<>();
 
@@ -67,5 +66,26 @@ public class BogMapper {
             return bogList;
 
         }
+    }
+
+    protected static String sletBog(int bog_id) throws SQLException {
+
+        String sql = "Delete FROM bogtabel where bogid = ?";
+
+        try (Connection con = ConnectionConfig.getConnection(); PreparedStatement ps = con.prepareStatement(sql);){
+
+             ps.setInt(1, bog_id);
+
+             int res = ps.executeUpdate();
+
+            if(res > 0){
+
+                return "En bog med bog id" + bog_id + "er blevet slettet";
+
+            }
+
+                return "kunn ikke finde bogen med id"+ bog_id;
+        }
+
     }
 }
