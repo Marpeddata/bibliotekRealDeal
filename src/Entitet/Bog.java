@@ -15,7 +15,6 @@ public class Bog {
         this.udgivelsesår = udgivelsesår;
     }
 
-    //constructor fra db til object
     public Bog(int bogid, String title, String forfatter, int udgivelsesår) {
         this.bogid = bogid;
         this.title = title;
@@ -23,7 +22,6 @@ public class Bog {
         this.udgivelsesår = udgivelsesår;
     }
 
-    //constructor fra object til db - ved oprettelse af ny bog eksempelvis.
     public Bog(String title, String forfatter, int udgivelsesår) {
         this.title = title;
         this.forfatter = forfatter;

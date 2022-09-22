@@ -8,15 +8,9 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-
-
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-
-
-
-
 
         List<Bog> bogList = new LinkedList<>();
         List<Låner> lånerList = new LinkedList<>();
@@ -68,9 +62,8 @@ public class Main {
                     break;
             }
         }
-
-
     }
+
     public static void udskrivBog(List<Bog> list){
         for (Bog bog : list) {
             System.out.println(bog.toString());
@@ -88,7 +81,6 @@ public class Main {
             System.out.println(udlån.toString());
         }
     }
-
 }
 
 

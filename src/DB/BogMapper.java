@@ -11,15 +11,15 @@ public class BogMapper {
 
         String sql = "INSERT INTO bogtabel (Forfatter , Title, udgivelsesår ) VALUES (?, ?, ?)";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
-             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);)
-        {
+             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
+
             try {
                 ps.setString(1, bog.getForfatter());
                 ps.setString(2, bog.getTitle());
                 ps.setInt(3, bog.getUdgivelsesår());
+
                 ps.executeUpdate();
 
 
@@ -29,14 +29,12 @@ public class BogMapper {
                 bog.setBogid(rs.getInt(1));
 
 
-
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
 
             return bog;
         }
-
     }
 
     protected static List<Bog> hentBøger() throws SQLException {
@@ -45,9 +43,8 @@ public class BogMapper {
 
         String sql = "Select * FROM bogtabel";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
              PreparedStatement ps = con.prepareStatement(sql);) {
             ResultSet resultSet = ps.executeQuery();
 
@@ -62,7 +59,6 @@ public class BogMapper {
 
             }
 
-
             return bogList;
 
         }
@@ -72,19 +68,19 @@ public class BogMapper {
 
         String sql = "Delete FROM bogtabel where bogid = ?";
 
-        try (Connection con = ConnectionConfig.getConnection(); PreparedStatement ps = con.prepareStatement(sql);){
+        try (Connection con = ConnectionConfig.getConnection(); PreparedStatement ps = con.prepareStatement(sql);) {
 
-             ps.setInt(1, bog_id);
+            ps.setInt(1, bog_id);
 
-             int res = ps.executeUpdate();
+            int res = ps.executeUpdate();
 
-            if(res > 0){
+            if (res > 0) {
 
                 return "En bog med bog id" + bog_id + "er blevet slettet";
 
             }
 
-                return "kunn ikke finde bogen med id"+ bog_id;
+            return "Kunne ikke finde bogen med id" + bog_id;
         }
 
     }

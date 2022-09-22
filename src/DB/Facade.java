@@ -10,15 +10,11 @@ import java.util.List;
 public class Facade {
 
     public static Bog opretBog(Bog bog) throws SQLException {
-
         return BogMapper.opretBog(bog);
-
-
     }
 
 
-    public static List<Bog> hentBøger() throws SQLException{
-
+    public static List<Bog> hentBøger() throws SQLException {
         return BogMapper.hentBøger();
     }
 
@@ -30,8 +26,7 @@ public class Facade {
         return LånerMapper.opretLåner(låner);
     }
 
-    public static List<Låner> hentLånere() throws SQLException{
-
+    public static List<Låner> hentLånere() throws SQLException {
         return LånerMapper.hentLånere();
     }
 
@@ -48,7 +43,7 @@ public class Facade {
         return UdlånMapper.seUdlån();
     }
 
-    public static String sletUdlån(int udlånid) throws SQLException{
+    public static String sletUdlån(int udlånid) throws SQLException {
         return UdlånMapper.sletUdlån(udlånid);
     }
 }

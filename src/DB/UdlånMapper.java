@@ -42,12 +42,10 @@ public class UdlånMapper {
 
         List<Udlån> udlånList = new LinkedList<>();
 
-
         String sql = "Select udlånstabel.udlånsid, lånertabel.lånerid, lånertabel.navn, bogtabel.Title  from lånertabel join udlånstabel on lånertabel.lånerid = udlånstabel.lånerid join bogtabel on  bogtabel.bogid = udlånstabel.bogid;";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
              PreparedStatement ps = con.prepareStatement(sql);) {
             ResultSet resultSet = ps.executeQuery();
 
@@ -62,7 +60,6 @@ public class UdlånMapper {
 
             }
 
-
             return udlånList;
 
         }
@@ -73,9 +70,8 @@ public class UdlånMapper {
 
         String sql = "Delete FROM udlånstabel where udlånsid = ?";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
              PreparedStatement ps = con.prepareStatement(sql);) {
 
             ps.setInt(1, udlånid);
@@ -84,11 +80,11 @@ public class UdlånMapper {
 
             if (res > 0) {
 
-                return "En låner med lånerID" + udlånid + "er blevet slettet";
+                return "En låner med lånerID " + udlånid + " er blevet slettet";
 
             }
 
-            return "kunne ikke finde låneren med id" + udlånid;
+            return "Kunne ikke finde låneren med id " + udlånid;
         }
 
     }

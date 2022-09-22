@@ -13,24 +13,21 @@ public class LånerMapper {
 
         String sql = "INSERT INTO lånertabel (navn , adresse, postnr ) VALUES (?, ?, ?)";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
              PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);)
         {
             try {
                 ps.setString(1, låner.getNavn());
                 ps.setString(2, låner.getAdresse());
                 ps.setInt(3, låner.getPostNr());
-                ps.executeUpdate();
 
+                ps.executeUpdate();
 
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
 
                 låner.setLånerId(rs.getInt(1));
-
-
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -50,9 +47,8 @@ public class LånerMapper {
 
         String sql = "Select lånertabel.lånerid, lånertabel.navn, lånertabel.adresse, lånertabel.postnr, postnr.bynavn from lånertabel inner join postnr ON lånertabel.postnr = postnr.postnr;";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
              PreparedStatement ps = con.prepareStatement(sql);) {
             ResultSet resultSet = ps.executeQuery();
 
@@ -67,7 +63,6 @@ public class LånerMapper {
                 lånerList.add(new Låner(lånerId, navn, adresse, postNr, byNavn));
 
             }
-
 
             return lånerList;
 
@@ -88,13 +83,12 @@ public class LånerMapper {
 
             if(res > 0){
 
-                return "En låner med lånerID" + lånerID + "er blevet slettet";
+                return "En låner med lånerID " + lånerID + " er blevet slettet";
 
             }
 
-            return "kunn ikke finde låneren med id"+ lånerID;
+            return "Kunne ikke finde låneren med id "+ lånerID;
         }
-
 
     }
 
@@ -125,7 +119,6 @@ public class LånerMapper {
 //            }
 //            return byNavn;
 //        }
-
 
     }
 
