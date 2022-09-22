@@ -16,8 +16,7 @@ public class UdlånMapper {
         try (Connection con = ConnectionConfig.getConnection();  // får en connection
 
              // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
-             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);)
-        {
+             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
             try {
                 ps.setInt(1, udlån.getBogID());
                 ps.setInt(2, udlån.getLånerID());
@@ -28,7 +27,6 @@ public class UdlånMapper {
                 rs.next();
 
                 udlån.setUdlånsID(rs.getInt(1));
-
 
 
             } catch (SQLException throwables) {
@@ -90,11 +88,10 @@ public class UdlånMapper {
 
             }
 
-            return "kunn ikke finde låneren med id" + udlånid;
+            return "kunne ikke finde låneren med id" + udlånid;
         }
 
     }
 
-
-    }
+}
 

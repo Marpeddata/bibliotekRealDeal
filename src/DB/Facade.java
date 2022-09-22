@@ -17,9 +17,9 @@ public class Facade {
     }
 
 
-    public static List<Bog> hentBøer() throws SQLException{
+    public static List<Bog> hentBøger() throws SQLException{
 
-        return BogMapper.hentBøer();
+        return BogMapper.hentBøger();
     }
 
     public static String sletBog(int bog_id) throws SQLException {

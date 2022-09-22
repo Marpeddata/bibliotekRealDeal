@@ -58,6 +58,7 @@ public class Bog {
     public String toString() {
         return "bogid : " + bogid +
                 " - title : " + title + '\'' +
-                " - forfatter : " + forfatter + '\'';
+                " - forfatter : " + forfatter + '\'' +
+                " - udgivelsesår : " + udgivelsesår + '\'';
     }
 }

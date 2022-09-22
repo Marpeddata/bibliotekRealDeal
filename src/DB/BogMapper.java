@@ -39,7 +39,7 @@ public class BogMapper {
 
     }
 
-    protected static List<Bog> hentBøer() throws SQLException {
+    protected static List<Bog> hentBøger() throws SQLException {
 
         List<Bog> bogList = new LinkedList<>();
 

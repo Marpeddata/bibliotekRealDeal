@@ -32,7 +32,7 @@ public class Main {
                     break;
 
                 case "hent bøger":
-                    bogList = Facade.hentBøer();
+                    bogList = Facade.hentBøger();
                     udskrivBog(bogList);
                     break;
 
