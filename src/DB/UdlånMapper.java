@@ -11,7 +11,7 @@ import java.util.List;
 public class UdlånMapper {
     public static Udlån lånBog(Udlån udlån) throws SQLException {
 
-        String sql = "INSERT INTO lånertabel (bogid , lånerid ) VALUES (?, ?)";
+        String sql = "INSERT INTO udlånstabel (bogid , lånerid ) VALUES (?, ?)";
 
         try (Connection con = ConnectionConfig.getConnection();  // får en connection
 
