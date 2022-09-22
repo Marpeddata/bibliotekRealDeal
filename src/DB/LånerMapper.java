@@ -83,11 +83,11 @@ public class LånerMapper {
 
             if(res > 0){
 
-                return "En låner med lånerID " + lånerID + " er blevet slettet";
+                return "Låneren med ID " + lånerID + " er nu slettet";
 
             }
 
-            return "Kunne ikke finde låneren med id "+ lånerID;
+            return "En låner med ID "+ lånerID + " findes desværre ikke";
         }
 
     }

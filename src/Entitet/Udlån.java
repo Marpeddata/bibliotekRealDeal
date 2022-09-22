@@ -22,12 +22,10 @@ public class Udlån {
 
     @Override
     public String toString() {
-        return "Udlån{" +
-                "udlånsID=" + udlånsID +
-                ", lånerID=" + lånerID +
-                ", lånerNavn='" + lånerNavn + '\'' +
-                ", bogNavn='" + bogNavn + '\'' +
-                '}';
+        return "Udlåns ID: " + udlånsID +
+                ", Låners ID: " + lånerID +
+                ", Låners navn: " + lånerNavn +
+                ", Bogens titel: " + bogNavn;
     }
 
     public int getUdlånsID() {

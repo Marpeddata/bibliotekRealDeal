@@ -74,11 +74,11 @@ public class BogMapper {
 
             if (res > 0) {
 
-                return "En bog med bog id " + bog_id + " er blevet slettet";
+                return "Bogen med ID " + bog_id + " er nu slettet";
 
             }
 
-            return "Kunne ikke finde bogen med id " + bog_id;
+            return "En bog med ID " + bog_id + " findes desværre ikke";
         }
 
     }

@@ -13,9 +13,9 @@ public class UdlånMapper {
 
         String sql = "INSERT INTO lånertabel (bogid , lånerid ) VALUES (?, ?)";
 
-        try (Connection con = ConnectionConfig.getConnection();  // får en connection
+        try (Connection con = ConnectionConfig.getConnection();
 
-             // se evt. https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
+
              PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
             try {
                 ps.setInt(1, udlån.getBogID());
@@ -80,11 +80,12 @@ public class UdlånMapper {
 
             if (res > 0) {
 
-                return "En låner med lånerID " + udlånid + " er blevet slettet";
+                return "Du har nu afleveret bogen med udlåns ID " + udlånid + " tilbage \n" +
+                        "Hav en dejlig dag og kom snart tilbage";
 
             }
 
-            return "Kunne ikke finde låneren med id " + udlånid;
+            return "Et udlån med ID " + udlånid + " findes desværre ikke";
         }
 
     }

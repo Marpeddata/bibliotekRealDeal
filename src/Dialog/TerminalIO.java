@@ -1,4 +1,4 @@
-package Entitet;
+package Dialog;
 
 import java.util.Scanner;
 

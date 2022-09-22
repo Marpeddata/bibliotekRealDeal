@@ -10,13 +10,10 @@ public class Låner {
 
     @Override
     public String toString() {
-        return "Låner{" +
-                "lånerId=" + lånerId +
-                ", navn='" + navn + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", postNr=" + postNr +
-                ", byNavn='" + byNavn + '\'' +
-                '}';
+        return "Låner ID: " + lånerId +
+                ", Navn: " + navn +
+                ", Adresse: " + adresse +
+                ", Postnummer: " + postNr;
     }
 
     public Låner(int lånerId, String navn, String adresse, int postNr, String byNavn) {
