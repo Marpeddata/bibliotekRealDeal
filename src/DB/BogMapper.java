@@ -28,7 +28,6 @@ public class BogMapper {
 
                 bog.setBogid(rs.getInt(1));
 
-
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -47,7 +46,6 @@ public class BogMapper {
 
              PreparedStatement ps = con.prepareStatement(sql);) {
             ResultSet resultSet = ps.executeQuery();
-
 
             while (resultSet.next()) {
                 int idBog = resultSet.getInt("bogid");
@@ -76,11 +74,11 @@ public class BogMapper {
 
             if (res > 0) {
 
-                return "En bog med bog id" + bog_id + "er blevet slettet";
+                return "En bog med bog id " + bog_id + " er blevet slettet";
 
             }
 
-            return "Kunne ikke finde bogen med id" + bog_id;
+            return "Kunne ikke finde bogen med id " + bog_id;
         }
 
     }
