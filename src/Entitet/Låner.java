@@ -13,7 +13,8 @@ public class Låner {
         return "Låner ID: " + lånerId +
                 ", Navn: " + navn +
                 ", Adresse: " + adresse +
-                ", Postnummer: " + postNr;
+                ", Postnummer: " + postNr +
+                ", By: " + byNavn;
     }
 
     public Låner(int lånerId, String navn, String adresse, int postNr, String byNavn) {
