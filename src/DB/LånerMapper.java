@@ -78,7 +78,9 @@ public class LånerMapper {
     public static String sletLåner(int lånerID) throws SQLException{
         String sql = "Delete FROM lånertabel where lånerid = ?";
 
-        try (Connection con = ConnectionConfig.getConnection(); PreparedStatement ps = con.prepareStatement(sql);){
+        try (Connection con = ConnectionConfig.getConnection();
+
+             PreparedStatement ps = con.prepareStatement(sql);){
 
             ps.setInt(1, lånerID);
 
